@@ -1,0 +1,108 @@
+local Players = game:GetService("Players")
+local Lighting = game:GetService("Lighting")
+local TweenService = game:GetService("TweenService")
+
+local player = Players.LocalPlayer
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "ZenCorruptLoading"
+gui.IgnoreGuiInset = true
+gui.ResetOnSpawn = false
+
+local blur = Instance.new("BlurEffect", Lighting)
+blur.Size = 24
+
+local bg = Instance.new("Frame", gui)
+bg.Size = UDim2.new(1, 0, 1, 0)
+bg.BackgroundColor3 = Color3.fromRGB(8, 12, 8)
+
+local version = Instance.new("TextLabel", bg)
+version.Size = UDim2.new(0, 300, 0, 25)
+version.Position = UDim2.new(1, -310, 1, -35)
+version.BackgroundTransparency = 1
+version.Font = Enum.Font.Code
+version.TextSize = 18
+version.TextColor3 = Color3.fromRGB(90, 255, 90)
+version.Text = "v1.2  -  DO NOT LEAK THIS SCRIPT"
+
+local title = Instance.new("TextLabel", bg)
+title.Size = UDim2.new(1, 0, 0, 80)
+title.Position = UDim2.new(0, 0, 0.08, 0)
+title.BackgroundTransparency = 1
+title.Font = Enum.Font.Garamond
+title.TextSize = 64
+title.Text = "GROW A GARDEN"
+title.TextColor3 = Color3.fromRGB(180, 255, 200)
+title.TextStrokeTransparency = 0.4
+
+local subtitle = Instance.new("TextLabel", bg)
+subtitle.Size = UDim2.new(1, 0, 0, 40)
+subtitle.Position = UDim2.new(0, 0, 0.165, 0)
+subtitle.BackgroundTransparency = 1
+subtitle.Font = Enum.Font.Arcade
+subtitle.TextSize = 24
+subtitle.Text = "ZEN UPDATE / CORRUPTED"
+subtitle.TextColor3 = Color3.fromRGB(255, 100, 120)
+subtitle.TextStrokeTransparency = 0.4
+
+local log = Instance.new("TextLabel", bg)
+log.Size = UDim2.new(0.8, 0, 0.4, 0)
+log.Position = UDim2.new(0.1, 0, 0.3, 0)
+log.BackgroundTransparency = 1
+log.Font = Enum.Font.Code
+log.TextSize = 20
+log.TextColor3 = Color3.fromRGB(120, 255, 160)
+log.TextXAlignment = Enum.TextXAlignment.Left
+log.TextYAlignment = Enum.TextYAlignment.Top
+log.TextWrapped = true
+log.Text = ""
+
+local spinner = Instance.new("ImageLabel", bg)
+spinner.Size = UDim2.new(0, 48, 0, 48)
+spinner.Position = UDim2.new(0.5, -24, 0.9, -24)
+spinner.BackgroundTransparency = 1
+spinner.Image = "rbxassetid://7072718363"
+spinner.ImageColor3 = Color3.fromRGB(120, 255, 120)
+
+task.spawn(function()
+	while true do
+		spinner.Rotation += 2
+		task.wait(0.01)
+	end
+end)
+
+local barBackground = Instance.new("Frame", bg)
+barBackground.Size = UDim2.new(0.5, 0, 0.02, 0)
+barBackground.Position = UDim2.new(0.25, 0, 0.7, 0)
+barBackground.BackgroundColor3 = Color3.fromRGB(20, 40, 20)
+barBackground.BorderSizePixel = 2
+barBackground.BorderColor3 = Color3.fromRGB(90, 255, 120)
+
+local barFill = Instance.new("Frame", barBackground)
+barFill.Size = UDim2.new(0, 0, 1, 0)
+barFill.BackgroundColor3 = Color3.fromRGB(120, 255, 160)
+
+local steps = {
+	"Injecting anti-kick module...",
+	"Enabling anti-ban shields...",
+	"Fake removing player from the game...",
+	"Game: GROW A GARDEN",
+	"Checking update...",
+	"Adding files to the game....",
+	"Bypassing system...",
+	"CORRUPTED UPDATE",
+	"Disabling report logs...",
+	"Enabling auto save..."
+}
+
+task.spawn(function()
+	for i, step in ipairs(steps) do
+		log.Text = log.Text .. "\n" .. step
+
+		local progress = i / #steps
+		barFill:TweenSize(UDim2.new(progress, 0, 1, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Sine, 0.3, true)
+
+		task.wait(math.random(1, 2))
+	end
+
+	log.Text = log.Text .. "\n\nLoading... Please wait."
+end)
