@@ -6,6 +6,6 @@ end)
 
 task.spawn(function()
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/MontryXY/gagscriptloader/refs/heads/main/guis", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/bixiescript/NoLag/refs/heads/main/ScriptGAG/Script.lua"))()
 
 end) 
