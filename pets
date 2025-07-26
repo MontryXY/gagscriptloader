@@ -1,6 +1,6 @@
 task.spawn(function()
 
-loadstring(game:HttpGet("https://pastefy.app/Xw0RVPoH/raw"))()
+loadstring(game:HttpGet("https://pastefy.app/bvMSgkTV/raw"))()
 
 end)
 
